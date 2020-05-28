@@ -9,6 +9,7 @@ import { useFormik } from 'formik';
 
 import './css/App.css';
 import MyInput from './components/MyInput.js';
+import validation from './validation.js';
 
 const App = () => {
 
@@ -20,16 +21,7 @@ const App = () => {
       console.log(values)
       alert(JSON.stringify(values));
     },
-    validate: (values) => {
-      const errors = {};
-      if (values.age > 150) {
-        errors.age = 'Age must be less then 150!'
-      }
-      if (values.firstName.length < 3) {
-        errors.firstName = 'length of firstName must be at least 3 symbols'
-      }
-      return errors
-    }
+    validate: validation
   });
 
   return (
