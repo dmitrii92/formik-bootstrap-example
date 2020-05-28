@@ -15,6 +15,10 @@ const App = () => {
 
   const formik = useFormik({
     initialValues: {
+      age: 0,
+      firstName: "",
+      secondName: "",
+      middleName: "",
     },
     onSubmit: (values) => {
       console.log("Submitted")
@@ -27,10 +31,10 @@ const App = () => {
   return (
     <Container>
       <Form onSubmit={formik.handleSubmit}>
-        <MyInput label="age" id="age" name="age" onChange={formik.handleChange} value={formik.values.age} type="number"/>
+        <MyInput label="Age" id="age" name="age" onChange={formik.handleChange} value={formik.values.age} type="number"/>
         {formik.errors.age ? <div>{formik.errors.age}</div> : null}
         <NewModule formik={formik}/>
-        <Button onClick={formik.handleSubmit} type="submit">Отправить на решение</Button>
+        <Button type="submit">Отправить на решение</Button>
       </Form>
     </Container>
 

@@ -8,6 +8,9 @@ const validation = (values) => {
     if (values.firstName.length < 3) {
       errors.firstName = 'length of firstName must be at least 3 symbols'
     }
+    if (values.secondName.length < 5) {
+      errors.secondName = 'length of secondName must be at least 5 symbols'
+    }
     return errors
 }
 
