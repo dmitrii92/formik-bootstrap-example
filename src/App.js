@@ -31,9 +31,18 @@ const App = () => {
   return (
     <Container>
       <Form onSubmit={formik.handleSubmit}>
-        <MyInput label="Age" id="age" name="age" onChange={formik.handleChange} value={formik.values.age} type="number"/>
-        {formik.errors.age ? <div>{formik.errors.age}</div> : null}
-        <NewModule formik={formik}/>
+        <MyInput
+          label="Age"
+          id="age"
+          name="age"
+          onChange={formik.handleChange}
+          value={formik.values.age}
+          type="number"
+          isInvalid={formik.errors.age && formik.touched.age}
+          errors={formik.errors.age}
+          onBlur={formik.handleBlur}
+        />
+        <NewModule formik={formik} />
         <Button type="submit">Отправить на решение</Button>
       </Form>
     </Container>
